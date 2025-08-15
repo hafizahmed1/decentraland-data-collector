@@ -2,7 +2,7 @@ name: Decentraland Data Collector
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"  # This runs the workflow every 5 minutes
   workflow_dispatch:
 
 jobs:
