@@ -95,6 +95,7 @@ if collected_data:
         print(f"✅ Updated existing file '{filename}' on Google Drive.")
     else:
         file_drive = drive.CreateFile({"title": filename, "parents": [{"id": folder_id}]})
+        
         file_drive.SetContentFile(filename)
         file_drive.Upload()
         print(f"✅ Created and uploaded new file '{filename}' to Google Drive.")
