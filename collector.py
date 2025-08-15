@@ -18,7 +18,6 @@ except Exception as e:
 # Google Drive authentication
 try:
     gauth = GoogleAuth()
-    gauth.LoadServiceConfigFile("creds.json")
     gauth.ServiceAuth()
     drive = GoogleDrive(gauth)
 except Exception as e:
