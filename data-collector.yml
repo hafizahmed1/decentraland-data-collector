@@ -2,7 +2,7 @@ name: Decentraland Data Collector
 
 on:
   schedule:
-    - cron: "*/5 * * * *"  # This runs the workflow every 5 minutes
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -26,4 +26,6 @@ jobs:
       - name: Run collector script
         env:
           GDRIVE_CREDENTIALS: ${{ secrets.GDRIVE_CREDENTIALS }}
+          PYTHONIOENCODING: utf-8
+          LANG: C.UTF-8
         run: python collector.py
