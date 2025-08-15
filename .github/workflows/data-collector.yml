@@ -1,1 +1,31 @@
+name: Decentraland Data Collector
 
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  collect-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install pandas
+          pip install pydrive2
+          pip install requests
+
+      - name: Run collector script
+        env:
+          GDRIVE_CREDENTIALS: ${{ secrets.GDRIVE_CREDENTIALS }}
+          PYTHONIOENCODING: utf-8
+          LANG: C.UTF-8
+        run: python collector.py
