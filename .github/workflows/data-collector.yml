@@ -28,4 +28,5 @@ jobs:
           GDRIVE_CREDENTIALS: ${{ secrets.GDRIVE_CREDENTIALS }}
           PYTHONIOENCODING: utf-8
           LANG: C.UTF-8
+          LC_ALL: C.UTF-8
         run: python collector.py
